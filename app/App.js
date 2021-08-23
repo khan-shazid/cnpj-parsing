@@ -28,15 +28,10 @@ import { CNPJDetailsComponent } from './components/CNPJDetailsComponent';
 import { getFormattedText, fetchData } from './actions';
 
 const App: () => Node = () => {
-  const inputRef = React.createRef();
   const isDarkMode = useColorScheme() === 'dark';
   const [text, setText] = useState('');
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
-
-  const backgroundStyle = {
-    backgroundColor: 'white',
-  };
 
   const getDetails = async() => {
     await setLoading(true);
@@ -46,7 +41,7 @@ const App: () => Node = () => {
   }
 
   return (
-    <SafeAreaView style={backgroundStyle}>
+    <SafeAreaView>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <TextInput
         style={s.inputContainer}
